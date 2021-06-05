@@ -244,8 +244,9 @@ nav{
   color: var(--white);
   background-color: #191B1F;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 18px;
   align-items: center;
+  line-height: inherit;
 
 }
 
@@ -269,4 +270,43 @@ nav{
   -webkit-box-pack: start;
   justify-content: flex-start;
   width: fit-content;
+}
+
+.currency-input-panel div img{
+  margin-right: 4px;
+}
+
+.currency-input-panel div span{
+  margin: 0 4px 0 4px;
+}
+
+.dropdown{
+  height: 35%;
+  margin: 0 4px 0 5px;
+}
+
+.dropdown path{
+  stroke: var(--white);
+  stroke-width: 1.5px;
+}
+
+.currency-input input{
+  color: #565A69;
+  outline: none;
+  border: none;
+  flex: 1 1 auto;
+  background-color: #2C2F36;
+  text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 24px;
+}
+
+.shuffle{
+  padding: 4px;
+  border-radius: 12px;
+  height: 32px;
+  width: 32px;
+  
 }
