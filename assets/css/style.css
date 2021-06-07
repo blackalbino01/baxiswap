@@ -165,9 +165,7 @@ nav{
   -webkit-box-align: center;
   -moz-box-align: center;
   align-items: center;
-  flex-grow: 1;
-  flex-basis: 0%;
-  flex-shrink: 1;
+  flex: 1;
   z-index: 1;
 }
 
@@ -183,7 +181,7 @@ nav{
   font-weight: bolder;
   font-size: 16px;
   margin-left: 20px;
-  padding-top: 15px;
+  padding-top: 10px;
 }
 
 .swap-page{
@@ -195,7 +193,6 @@ nav{
   display: grid;
   grid-auto-rows: auto;
   grid-row-gap: 12px;
-  row-gap: 12px;
 }
 
 .swap-currency-input{
@@ -206,16 +203,24 @@ nav{
   width: initial;
   position: relative;
   border-radius: 20px;
-  background-color: #2C2F36;
+  background-color: #212429;
   z-index: 1;
   border: 1px solid #2C2F36;
+  padding-bottom: 16px;
+}
+
+.swap-currency-input:first-child {
+  border-radius: 20px;
+  border: 1px solid #2C2F36;
+  background-color: #212429;
+  width: initial;
 }
 
 .swap-currency-input:hover{
   border: 1px solid #40444F;
 }
 
-.currency-input{
+.currency-input, .currency-output{
   display: flex;
   flex-flow: row nowrap;
   flex-direction: row;
@@ -233,6 +238,7 @@ nav{
   flex-wrap: nowrap;
   position: relative;
   z-index: 1;
+  min-width: 0;
   margin-right: 12px;
   width: initial;
   border: none;
@@ -250,6 +256,54 @@ nav{
 
 }
 
+.currency-output button{
+  padding: 16px;
+  width: 100%;
+  font-weight: 500;
+  text-align: center;
+  outline: none;
+  border: 1px solid transparent;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight:bolder;
+  background-color: #2172E5;
+  color: var(--white);
+  border-radius: 16px;
+  cursor: pointer;
+  border: none;
+  height: 2.4rem;
+  width: initial;
+  padding: 0 8px;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin-right: 12px;
+}
+
 .currency-input-panel{
   display: flex;
   width: 100%;
@@ -262,22 +316,32 @@ nav{
 }
 
 .currency-input-panel div{
+  box-sizing: border-box;
+  margin: 0;
+  white-space: nowrap;
+  min-width: 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  padding: 0;
+  -webkit-align-items: center;
   -webkit-box-align: center;
-  -moz-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
-  -moz-box-pack: start;
   -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
+}
 }
 
 .currency-input-panel div img{
-  margin-right: 4px;
-}
-
-.currency-input-panel div span{
-  margin: 0 4px 0 4px;
+  margin-right: 8px;
 }
 
 .dropdown{
@@ -290,23 +354,79 @@ nav{
   stroke-width: 1.5px;
 }
 
-.currency-input input{
+.currency-input input,.currency-output input{
+  max-width: 304px;
+  width: 100%;
   color: #565A69;
   outline: none;
   border: none;
   flex: 1 1 auto;
-  background-color: #2C2F36;
+  background-color: #212429;
   text-align: right;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   font-size: 24px;
+  font-weight: bolder;
+}
+
+@media(max-width: 600px){
+  .app-body{
+    margin: 0 20px;
+  }
 }
 
 .shuffle{
+  display: flex;
+  align-items: center;
+  position: relative;
   padding: 4px;
   border-radius: 12px;
   height: 32px;
   width: 32px;
+  margin: -14px 0;
+  background-color: #2C2F36;
+  border: 4px solid #191B1F;
+  z-index: 2;
+  left: calc(50% - 16px);
   
+}
+
+.shuffle:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.connect-wallet {
+  padding: 16px;
+  width: 100%;
+  font-weight: bolder;
+  text-align: center;
+  border-radius: 20px;
+  outline: none;
+  border: 1px solid transparent;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  background-color: #153d6f70;
+  color: #6da8ff;
+  font-size: 16px;
+  font-weight: 600;
 }
