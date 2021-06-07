@@ -95,7 +95,7 @@ nav{
   border-radius: 12px;
   user-select: none;
   font-weight: 500;
-  background-color: #1e6bcc70;
+  background-color: #153d6f70;
   border: 1px solid #153d6f70;
   color: #6da8ff;
 }
@@ -112,9 +112,9 @@ nav{
   border-radius: 12px;
   user-select: none;
   font-weight: 500;
-  background-color: #f0c5c5;
+  background-color: #FDEAF1;
   border: none;
-  color: #350505;
+  color: #ff007a;
 }
 
 .darkmode{
@@ -152,7 +152,7 @@ nav{
   border-radius: 8px;
   margin: 0;
   border: none;
-  background-color: #f4c5c58a;
+  background-color: #FDEAF1;
   color: #000;
 
 }
@@ -177,8 +177,16 @@ nav{
   margin-top: -3rem;
 }
 
+.app-body-light{
+  position: relative;
+  max-width: 480px;
+  background-color: var(--white);
+  border-radius: 24px;
+  margin-top: -3rem;
+}
+
 .title p{
-  font-weight: bolder;
+  font-weight: 500;
   font-size: 16px;
   margin-left: 20px;
   padding-top: 10px;
@@ -209,15 +217,26 @@ nav{
   padding-bottom: 16px;
 }
 
-.swap-currency-input:first-child {
-  border-radius: 20px;
-  border: 1px solid #2C2F36;
-  background-color: #212429;
+.swap-currency-input-light{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  flex-flow: column nowrap;
   width: initial;
+  position: relative;
+  border-radius: 20px;
+  background-color: #F7F8FA;
+  z-index: 1;
+  border: 1px solid #EDEEF2;
+  padding-bottom: 16px;
 }
 
 .swap-currency-input:hover{
   border: 1px solid #40444F;
+}
+
+.swap-currency-input-light:focus, .swap-currency-input-light:hover {
+  border: 1px solid #CED0D9;
 }
 
 .currency-input, .currency-output{
@@ -354,7 +373,7 @@ nav{
   stroke-width: 1.5px;
 }
 
-.currency-input input,.currency-output input{
+.input-dark{
   max-width: 304px;
   width: 100%;
   color: #565A69;
@@ -362,6 +381,22 @@ nav{
   border: none;
   flex: 1 1 auto;
   background-color: #212429;
+  text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 24px;
+  font-weight: bolder;
+}
+
+.input-light{
+  max-width: 304px;
+  width: 100%;
+  color: #565A69;
+  outline: none;
+  border: none;
+  flex: 1 1 auto;
+  background-color: #F7F8FA;
   text-align: right;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -392,12 +427,33 @@ nav{
   
 }
 
+.shuffle-light{
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 4px;
+  border-radius: 12px;
+  height: 32px;
+  width: 32px;
+  margin: -14px 0;
+  background-color: #F7F8FA;
+  border: 4px solid #fff;
+  z-index: 2;
+  left: calc(50% - 16px);
+  
+}
+
 .shuffle:hover {
   cursor: pointer;
   opacity: 0.8;
 }
 
-.connect-wallet {
+.shuffle-light:hover{
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.connectwallet {
   padding: 16px;
   width: 100%;
   font-weight: bolder;
@@ -429,4 +485,42 @@ nav{
   color: #6da8ff;
   font-size: 16px;
   font-weight: 600;
+}
+
+.connectwallet-light {
+  padding: 16px;
+  width: 100%;
+  font-weight: bolder;
+  text-align: center;
+  border-radius: 20px;
+  outline: none;
+  border: 1px solid transparent;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  background-color: #FDEAF1;
+  color: #ff007a;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.connectwallet-light:hover {
+  background-color: #fcdce8;
 }
