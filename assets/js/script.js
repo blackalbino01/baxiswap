@@ -8,6 +8,8 @@ let appBody = document.getElementById('app-body');
 let swapDark = document.getElementsByClassName('swap-dark');
 let input = document.getElementsByClassName('input');
 let shuffle = document.getElementById('shuffle');
+let walletModal = document.querySelector('.walletmodal-wrapper');
+let currencyContainer = document.getElementsByClassName('currency-container');
 
 
 function checkMode(){
@@ -60,3 +62,68 @@ function checkMode(){
 
 }
 
+function walletModalShow(){
+	walletModal.style.display = 'flex';
+}
+
+
+function walletModalClose(){
+	setTimeout(() => { 
+        walletModal.style.display = 'none';
+    }, 200);
+}
+
+function shufflePanel() {
+	if (currencyContainer[0].children[0].classList == 'currency-input') {
+		currencyContainer[0].innerHTML = `<div class="currency-output">
+									                      <button>
+									                        <span class="currency-input-panel">
+									                          <div>
+									                            <span style="margin:0 4px;">Select a Token</span>
+									                          </div>
+									                          <svg class="dropdown" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg" class="CurrencyInputPanel__StyledDropDown-sc-33m4yg-8 gSzdoI"><path d="M0.97168 1L6.20532 6L11.439 1" stroke="#AEAEAE"></path></svg>
+									                        </span>
+									                      </button>
+									                      <input class="input input-dark" type="text" inputmode="decimal" pattern="^[0-9]*[.,]?[0-9]*$" placeholder="0.0" minlength="1" maxlength="79">
+									                    </div>`;
+		currencyContainer[1].innerHTML = `<div class="currency-input">
+									                      <button>
+									                        <span class="currency-input-panel">
+									                          <div>
+									                            <img src="assets/images/bantu.png" style="width: 24px;">
+									                            <span style="margin:0 8px;">XBN</span>
+									                          </div>
+									                          <svg class="dropdown" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.97168 1L6.20532 6L11.439 1" stroke="#AEAEAE"></path></svg>
+									                        </span>
+									                      </button>
+									                      <input class="input input-dark" type="text" inputmode="decimal" pattern="^[0-9]*[.,]?[0-9]*$" placeholder="0.0" minlength="1" maxlength="79">
+									                    </div>`;
+		
+	}
+
+	else {
+		currencyContainer[1].innerHTML = `<div class="currency-output">
+									                      <button>
+									                        <span class="currency-input-panel">
+									                          <div>
+									                            <span style="margin:0 4px;">Select a Token</span>
+									                          </div>
+									                          <svg class="dropdown" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg" class="CurrencyInputPanel__StyledDropDown-sc-33m4yg-8 gSzdoI"><path d="M0.97168 1L6.20532 6L11.439 1" stroke="#AEAEAE"></path></svg>
+									                        </span>
+									                      </button>
+									                      <input class="input input-dark" type="text" inputmode="decimal" pattern="^[0-9]*[.,]?[0-9]*$" placeholder="0.0" minlength="1" maxlength="79">
+									                    </div>`;
+		currencyContainer[0].innerHTML = `<div class="currency-input">
+									                      <button>
+									                        <span class="currency-input-panel">
+									                          <div>
+									                            <img src="assets/images/bantu.png" style="width: 24px;">
+									                            <span style="margin:0 8px;">XBN</span>
+									                          </div>
+									                          <svg class="dropdown" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.97168 1L6.20532 6L11.439 1" stroke="#AEAEAE"></path></svg>
+									                        </span>
+									                      </button>
+									                      <input class="input input-dark" type="text" inputmode="decimal" pattern="^[0-9]*[.,]?[0-9]*$" placeholder="0.0" minlength="1" maxlength="79">
+									                    </div>`;
+	}
+}
