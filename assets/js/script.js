@@ -8,7 +8,6 @@ let appBody = document.getElementById('app-body');
 let swapDark = document.getElementsByClassName('swap-dark');
 let input = document.getElementsByClassName('input');
 let shuffle = document.getElementById('shuffle');
-let walletModal = document.querySelector('.walletmodal-wrapper');
 let currencyContainer = document.getElementsByClassName('currency-container');
 
 
@@ -62,15 +61,15 @@ function checkMode(){
 
 }
 
-function walletModalShow(){
-	walletModal.style.display = 'flex';
+function ModalShow(elementModal){
+	elementModal.style.display = 'flex';
 }
 
 
-function walletModalClose(){
+function ModalClose(elementModal){
 	setTimeout(() => { 
-        walletModal.style.display = 'none';
-    }, 200);
+        elementModal.style.display = 'none';
+    }, 100);
 }
 
 function shufflePanel() {
@@ -98,7 +97,6 @@ function shufflePanel() {
 									                      </button>
 									                      <input class="input input-dark" type="text" inputmode="decimal" pattern="^[0-9]*[.,]?[0-9]*$" placeholder="0.0" minlength="1" maxlength="79">
 									                    </div>`;
-		
 	}
 
 	else {

@@ -20,7 +20,7 @@
           </div>
           <div class="nav-menu flex">
             <div class="connect-to-wallet">
-              <button id="connect" class="connect-dark connect-wallet" onClick="walletModalShow()">Connect to a Wallet</button>
+              <button id="connect" class="connect-dark connect-wallet" onClick="ModalShow(document.querySelector('.walletmodal-wrapper'))">Connect to a Wallet</button>
             </div>
             <div class="mode">
               <button id="mode" class="darkmode" onclick="checkMode()">
@@ -44,7 +44,7 @@
                 <div class="swap-currency-input swap-dark">
                   <div class="currency-container">
                     <div class="currency-input">
-                      <button>
+                      <button onclick="ModalShow(document.querySelector('.tokenmodal-wrapper'))">
                         <span class="currency-input-panel">
                           <div>
                             <img src="assets/images/bantu.png" style="width: 24px;">
@@ -77,7 +77,7 @@
                 </div>
               </div>
               <div>
-                <button class="connectwallet connect-wallet" onClick="walletModalShow()" >Connect Wallet</button>
+                <button class="connectwallet connect-wallet" onClick="ModalShow(document.querySelector('.walletmodal-wrapper'))" >Connect Wallet</button>
               </div>
             </div>
           </div>
@@ -88,10 +88,10 @@
 
     <!-- ========MODALS======= -->
     <div style="opacity: 1;" class="walletmodal-wrapper">
-      <div class="walletmodal-wrapper-sc-1">
+      <div class="modal-wrapper-sc-1">
         <div class="walletmodal-wrapper-sc-2">
           <div style="position: relative;">
-            <div class="closeBtn" style="position: absolute; right: 16px; top: 14px;" onClick="walletModalClose()">
+            <div class="closeBtn" style="position: absolute; right: 16px; top: 14px;" onClick="ModalClose(document.querySelector('.walletmodal-wrapper'))">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="WalletModal__CloseColor-sc-1hmbv05-1 cQJBTg"><line x1="18" y1="6" x2="6" y2="18" ></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </div>
             <div class="walletmodal-headerrow">
@@ -122,6 +122,31 @@
                 </button>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="opacity: 1;" class="tokenmodal-wrapper">
+      <div class="tokenmodal-wrapper-sc-1">
+        <div class="tokenmodal-wrapper-sc-2">
+          <div class="tokenmodal-column-1">
+            <div class="tokenmodal-headerrow">
+              <div class="select-token">
+                Select a token
+              </div>
+              <svg class="tokenclose" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="WalletModal__CloseColor-sc-1hmbv05-1 cQJBTg" onClick="ModalClose(document.querySelector('.tokenmodal-wrapper'))"><line x1="18" y1="6" x2="6" y2="18" ></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </div>
+          </div>
+          <div class="tokenmodal-column-2">
+            <div class="common-bases-headerrow">
+              <div class="common-bases">
+                Common bases
+              </div>
+            </div>
+          </div>
+          <div class="tokenmodal-column-3">
+            
           </div>
         </div>
       </div>
