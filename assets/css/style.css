@@ -256,7 +256,7 @@ nav{
   flex-wrap: nowrap;
   position: relative;
   z-index: 1;
-  min-width: 0;
+  min-width: 110px;
   margin-right: 12px;
   width: initial;
   border: none;
@@ -405,7 +405,7 @@ nav{
 }
 
 @media(max-width: 600px){
-  .app-body{
+  .app-body,.app-body-light{
     margin: 0 20px;
   }
 }
