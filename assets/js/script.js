@@ -9,6 +9,8 @@ let swapDark = document.getElementsByClassName('swap-dark');
 let input = document.getElementsByClassName('input');
 let shuffle = document.getElementById('shuffle');
 let currencyContainer = document.getElementsByClassName('currency-container');
+let currencyInput = document.querySelector('.currency-input-dark');
+let currencyOutput = document.querySelector('.currency-output-dark');
 
 
 function checkMode(){
@@ -24,6 +26,8 @@ function checkMode(){
 		input[0].classList.replace('input-dark','input-light');
 		input[1].classList.replace('input-dark','input-light');
 		shuffle.classList.replace('shuffle','shuffle-light');
+		currencyInput.classList.replace('currency-input-dark', 'currency-input-light');
+		currencyOutput.classList.replace('currency-output-dark', 'currency-output-light');
 
 		if(changeMode == 'lightmode') {
 			changeMode.classList.replace('lightmode','darkmode');
@@ -36,6 +40,8 @@ function checkMode(){
 			input[0].classList.replace('input-light','input-dark');
 			input[1].classList.replace('input-light','input-dark');
 			shuffle.classList.replace('shuffle-light','shuffle');
+			currencyInput.classList.replace('currency-input-light', 'currency-input-dark');
+			currencyOutput.classList.replace('currency-output-light', 'currency-output-dark');
 
 			changeMode.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 	                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
@@ -54,6 +60,8 @@ function checkMode(){
 		input[0].classList.replace('input-light','input-dark');
 		input[1].classList.replace('input-light','input-dark');
 		shuffle.classList.replace('shuffle-light','shuffle');
+		currencyInput.classList.replace('currency-input-light', 'currency-input-dark');
+		currencyOutput.classList.replace('currency-output-light', 'currency-output-dark');
 		changeMode.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                 </svg>`
@@ -73,55 +81,111 @@ function ModalClose(elementModal){
 }
 
 function shufflePanel() {
-	if (currencyContainer[0].children[0].classList == 'currency-input') {
-		currencyContainer[0].innerHTML = `<div class="currency-output">
-									                      <button>
-									                        <span class="currency-input-panel">
-									                          <div>
-									                            <span style="margin:0 4px;">Select a Token</span>
-									                          </div>
-									                          <svg class="dropdown" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg" class="CurrencyInputPanel__StyledDropDown-sc-33m4yg-8 gSzdoI"><path d="M0.97168 1L6.20532 6L11.439 1" stroke="#AEAEAE"></path></svg>
-									                        </span>
-									                      </button>
-									                      <input class="input input-dark" type="text" inputmode="decimal" pattern="^[0-9]*[.,]?[0-9]*$" placeholder="0.0" minlength="1" maxlength="79">
-									                    </div>`;
-		currencyContainer[1].innerHTML = `<div class="currency-input">
-									                      <button>
-									                        <span class="currency-input-panel">
-									                          <div>
-									                            <img src="assets/images/bantu.png" style="width: 24px;">
-									                            <span style="margin:0 8px;">XBN</span>
-									                          </div>
-									                          <svg class="dropdown" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.97168 1L6.20532 6L11.439 1" stroke="#AEAEAE"></path></svg>
-									                        </span>
-									                      </button>
-									                      <input class="input input-dark" type="text" inputmode="decimal" pattern="^[0-9]*[.,]?[0-9]*$" placeholder="0.0" minlength="1" maxlength="79">
-									                    </div>`;
+	if(shuffle.classList == "shuffle"){
+		if (currencyContainer[0].children[0].classList == 'currency-input-dark') {
+			currencyContainer[0].innerHTML = `<div class="currency-output-dark">
+										                      <button onclick="ModalShow(document.querySelector('.tokenmodal-wrapper'))">
+										                        <span class="currency-input-panel">
+										                          <div>
+										                            <span style="margin:0 4px;">Select a Token</span>
+										                          </div>
+										                          <svg class="dropdown" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg" class="CurrencyInputPanel__StyledDropDown-sc-33m4yg-8 gSzdoI"><path d="M0.97168 1L6.20532 6L11.439 1" stroke="#AEAEAE"></path></svg>
+										                        </span>
+										                      </button>
+										                      <input class="input input-dark" type="text" inputmode="decimal" pattern="^[0-9]*[.,]?[0-9]*$" placeholder="0.0" minlength="1" maxlength="79">
+										                    </div>`;
+			currencyContainer[1].innerHTML = `<div class="currency-input-dark">
+										                      <button onclick="ModalShow(document.querySelector('.tokenmodal-wrapper'))">
+										                        <span class="currency-input-panel">
+										                          <div>
+										                            <img src="assets/images/bantupay.png" style="width: 24px; border-radius: 100%;">
+										                            <span style="margin:0 8px;">XBN</span>
+										                          </div>
+										                          <svg class="dropdown" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.97168 1L6.20532 6L11.439 1" stroke="#AEAEAE"></path></svg>
+										                        </span>
+										                      </button>
+										                      <input class="input input-dark" type="text" inputmode="decimal" pattern="^[0-9]*[.,]?[0-9]*$" placeholder="0.0" minlength="1" maxlength="79">
+										                    </div>`;
+		}
+
+		else {
+			currencyContainer[1].innerHTML = `<div class="currency-output-dark">
+										                      <button onclick="ModalShow(document.querySelector('.tokenmodal-wrapper'))">
+										                        <span class="currency-input-panel">
+										                          <div>
+										                            <span style="margin:0 4px;">Select a Token</span>
+										                          </div>
+										                          <svg class="dropdown" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg" class="CurrencyInputPanel__StyledDropDown-sc-33m4yg-8 gSzdoI"><path d="M0.97168 1L6.20532 6L11.439 1" stroke="#AEAEAE"></path></svg>
+										                        </span>
+										                      </button>
+										                      <input class="input input-dark" type="text" inputmode="decimal" pattern="^[0-9]*[.,]?[0-9]*$" placeholder="0.0" minlength="1" maxlength="79">
+										                    </div>`;
+			currencyContainer[0].innerHTML = `<div class="currency-input-dark">
+										                      <button onclick="ModalShow(document.querySelector('.tokenmodal-wrapper'))">
+										                        <span class="currency-input-panel">
+										                          <div>
+										                            <img src="assets/images/bantupay.png" style="width: 24px; border-radius: 100%;">
+										                            <span style="margin:0 8px;">XBN</span>
+										                          </div>
+										                          <svg class="dropdown" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.97168 1L6.20532 6L11.439 1" stroke="#AEAEAE"></path></svg>
+										                        </span>
+										                      </button>
+										                      <input class="input input-dark" type="text" inputmode="decimal" pattern="^[0-9]*[.,]?[0-9]*$" placeholder="0.0" minlength="1" maxlength="79">
+										                    </div>`;
+		}
 	}
 
-	else {
-		currencyContainer[1].innerHTML = `<div class="currency-output">
-									                      <button>
-									                        <span class="currency-input-panel">
-									                          <div>
-									                            <span style="margin:0 4px;">Select a Token</span>
-									                          </div>
-									                          <svg class="dropdown" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg" class="CurrencyInputPanel__StyledDropDown-sc-33m4yg-8 gSzdoI"><path d="M0.97168 1L6.20532 6L11.439 1" stroke="#AEAEAE"></path></svg>
-									                        </span>
-									                      </button>
-									                      <input class="input input-dark" type="text" inputmode="decimal" pattern="^[0-9]*[.,]?[0-9]*$" placeholder="0.0" minlength="1" maxlength="79">
-									                    </div>`;
-		currencyContainer[0].innerHTML = `<div class="currency-input">
-									                      <button>
-									                        <span class="currency-input-panel">
-									                          <div>
-									                            <img src="assets/images/bantu.png" style="width: 24px;">
-									                            <span style="margin:0 8px;">XBN</span>
-									                          </div>
-									                          <svg class="dropdown" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.97168 1L6.20532 6L11.439 1" stroke="#AEAEAE"></path></svg>
-									                        </span>
-									                      </button>
-									                      <input class="input input-dark" type="text" inputmode="decimal" pattern="^[0-9]*[.,]?[0-9]*$" placeholder="0.0" minlength="1" maxlength="79">
-									                    </div>`;
+	else{
+		if (currencyContainer[0].children[0].classList == 'currency-input-light') {
+			currencyContainer[0].innerHTML = `<div class="currency-output-light">
+										                      <button onclick="ModalShow(document.querySelector('.tokenmodal-wrapper'))">
+										                        <span class="currency-input-panel">
+										                          <div>
+										                            <span style="margin:0 4px;">Select a Token</span>
+										                          </div>
+										                          <svg class="dropdown" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg" class="CurrencyInputPanel__StyledDropDown-sc-33m4yg-8 gSzdoI"><path d="M0.97168 1L6.20532 6L11.439 1" stroke="#AEAEAE"></path></svg>
+										                        </span>
+										                      </button>
+										                      <input class="input input-light" type="text" inputmode="decimal" pattern="^[0-9]*[.,]?[0-9]*$" placeholder="0.0" minlength="1" maxlength="79">
+										                    </div>`;
+			currencyContainer[1].innerHTML = `<div class="currency-input-light">
+										                      <button onclick="ModalShow(document.querySelector('.tokenmodal-wrapper'))">
+										                        <span class="currency-input-panel">
+										                          <div>
+										                            <img src="assets/images/bantupay.png" style="width: 24px; border-radius: 100%;">
+										                            <span style="margin:0 8px;">XBN</span>
+										                          </div>
+										                          <svg class="dropdown" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.97168 1L6.20532 6L11.439 1" stroke="#AEAEAE"></path></svg>
+										                        </span>
+										                      </button>
+										                      <input class="input input-light" type="text" inputmode="decimal" pattern="^[0-9]*[.,]?[0-9]*$" placeholder="0.0" minlength="1" maxlength="79">
+										                    </div>`;
+		}
+
+		else {
+			currencyContainer[1].innerHTML = `<div class="currency-output-light">
+										                      <button onclick="ModalShow(document.querySelector('.tokenmodal-wrapper'))">
+										                        <span class="currency-input-panel">
+										                          <div>
+										                            <span style="margin:0 4px;">Select a Token</span>
+										                          </div>
+										                          <svg class="dropdown" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg" class="CurrencyInputPanel__StyledDropDown-sc-33m4yg-8 gSzdoI"><path d="M0.97168 1L6.20532 6L11.439 1" stroke="#AEAEAE"></path></svg>
+										                        </span>
+										                      </button>
+										                      <input class="input input-light" type="text" inputmode="decimal" pattern="^[0-9]*[.,]?[0-9]*$" placeholder="0.0" minlength="1" maxlength="79">
+										                    </div>`;
+			currencyContainer[0].innerHTML = `<div class="currency-input-light">
+										                      <button onclick="ModalShow(document.querySelector('.tokenmodal-wrapper'))">
+										                        <span class="currency-input-panel">
+										                          <div>
+										                            <img src="assets/images/bantupay.png" style="width: 24px; border-radius: 100%;">
+										                            <span style="margin:0 8px;">XBN</span>
+										                          </div>
+										                          <svg class="dropdown" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.97168 1L6.20532 6L11.439 1" stroke="#AEAEAE"></path></svg>
+										                        </span>
+										                      </button>
+										                      <input class="input input-light" type="text" inputmode="decimal" pattern="^[0-9]*[.,]?[0-9]*$" placeholder="0.0" minlength="1" maxlength="79">
+										                    </div>`;
+		}
 	}
 }

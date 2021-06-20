@@ -62,7 +62,7 @@ button:hover{
 }
 
 nav{
-  padding: 10px 5px;
+  padding: 8px 5px;
   justify-content: space-between;
   align-items: center;
 }
@@ -75,7 +75,7 @@ nav{
 }
 
 .nav-menu{
-  padding-top: 10px;
+  padding-top: 5px;
   padding-right: 10px;
 }
 
@@ -238,7 +238,7 @@ nav{
   border: 1px solid #CED0D9;
 }
 
-.currency-input, .currency-output{
+.currency-input-dark, .currency-output-dark, .currency-input-light,.currency-output-light{
   display: flex;
   flex-flow: row nowrap;
   flex-direction: row;
@@ -249,7 +249,7 @@ nav{
   padding: 16px 16px 12px 16px;
 }
 
-.currency-input button{
+.currency-input-dark button{
   display: flex;
   justify-content: space-between;
   text-align: center;
@@ -267,14 +267,39 @@ nav{
   border-radius: 16px;
   color: var(--white);
   background-color: #191B1F;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 18px;
   align-items: center;
   line-height: inherit;
 
 }
 
-.currency-output button{
+.currency-input-light button{
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  flex-wrap: nowrap;
+  position: relative;
+  z-index: 1;
+  min-width: 110px;
+  margin-right: 12px;
+  width: initial;
+  border: none;
+  padding: 0 8px;
+  height: 2.4rem;
+  cursor: pointer;
+  outline: none;
+  border-radius: 16px;
+  color: #000000;
+  background-color: var(--white);
+  font-weight: 600;
+  font-size: 18px;
+  align-items: center;
+  line-height: inherit;
+
+}
+
+.currency-output-dark button{
   padding: 16px;
   width: 100%;
   font-weight: 500;
@@ -308,6 +333,54 @@ nav{
   font-size: 18px;
   font-weight:bolder;
   background-color: #2172E5;
+  color: var(--white);
+  border-radius: 16px;
+  cursor: pointer;
+  border: none;
+  height: 2.4rem;
+  width: initial;
+  padding: 0 8px;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin-right: 12px;
+}
+
+.currency-output-light button{
+  padding: 16px;
+  width: 100%;
+  font-weight: 500;
+  text-align: center;
+  outline: none;
+  border: 1px solid transparent;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight:bolder;
+  background-color: #ff007a;
   color: var(--white);
   border-radius: 16px;
   cursor: pointer;
@@ -356,18 +429,17 @@ nav{
   width: -moz-fit-content;
   width: fit-content;
 }
-}
 
 .currency-input-panel div img{
   margin-right: 8px;
 }
 
-.dropdown{
+.token-dropdown{
   height: 35%;
   margin: 0 4px 0 5px;
 }
 
-.dropdown path{
+.token-dropdown path{
   stroke: var(--white);
   stroke-width: 1.5px;
 }
@@ -727,8 +799,8 @@ nav{
   -ms-flex-item-align: center;
   align-self: center;
   max-width: 420px;
-  max-height: 80vh;
-  min-height: 60vh;
+  max-height: 40vh;
+  min-height: 30vh;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -802,7 +874,7 @@ nav{
   display: grid;
   grid-auto-rows: auto;
   grid-row-gap: 12px;
-  padding: 20px;
+  padding: 0 20px 20px 20px;
 }
 
 .common-bases-headerrow{
@@ -837,15 +909,12 @@ nav{
 }
 
 .tokenmodal-column-3{
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
+  padding:0 20px;
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 0;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -857,5 +926,64 @@ nav{
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin: -4px;
+
+}
+
+.token{
+  border: 1px solid #40444F;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 6px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.token:last-child{
+  margin-left: 10px;
+}
+
+.token:hover{
+  cursor: pointer;
+  background-color: #2C2F36;
+}
+
+.basetoken{
+  border: 1px solid transparent;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 6px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #40444F;
+  opacity: 0.4;
+}
+
+.basetoken:last-child{
+  margin-left: 10px;
+}
+
+.common-base-token{
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.token-logo{
+  width: 24px;
+  height: 24px;
+  border-radius: 24px;
+  box-shadow: 0px 6px 10px rgba(0,0,0,0.075);
+  background-color: #FFFFFF;
 }
