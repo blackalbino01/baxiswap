@@ -88,17 +88,17 @@
 
     <!-- ========MODALS======= -->
     <div style="opacity: 1;" class="walletmodal-wrapper">
-      <div class="modal-wrapper-sc-1">
+      <div class="modal-wrapper-sc-1" id="modal-wrapper-sc-1">
         <div class="walletmodal-wrapper-sc-2">
           <div style="position: relative;">
-            <div class="closeBtn" style="position: absolute; right: 16px; top: 14px;" onClick="ModalClose(document.querySelector('.walletmodal-wrapper'))">
+            <div class="closeBtn" style="position: absolute; right: 16px; top: 14px; cursor: pointer;" onClick="ModalClose(document.querySelector('.walletmodal-wrapper'))">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="WalletModal__CloseColor-sc-1hmbv05-1 cQJBTg"><line x1="18" y1="6" x2="6" y2="18" ></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </div>
             <div class="walletmodal-headerrow">
               <div class="walletmodal-headerrow-text">Connect to a wallet</div>
             </div>
-            <div class="walletmodal-contentwrapper">
-              <div style="margin-bottom: 16px;" class="walletmodal-contentwrapper-notice">
+            <div class="walletmodal-contentwrapper" id="walletmodal-contentwrapper">
+              <div style="margin-bottom: 16px;" class="walletmodal-contentwrapper-notice" id="walletmodal-contentwrapper-notice">
                 <div style="flex-wrap: nowrap;">
                   <div class="notice">By connecting a wallet, you agree to BaxiSwap <a href="#"><u>Terms of Service</u></a> and acknowledge that you have read and understand the <a href="#">BaxiSwap disclaimer</a>.</div>
                 </div>
@@ -106,7 +106,7 @@
               <div class="walletmodal-optiongrid">
                 <button id="connect-bantupay" class="btns">
                   <div class="optiongrid-left">
-                    <div color="#E8831D" class="optiongrid-left-headertext">BantuPay</div>
+                    <div class="optiongrid-left-headertext">BantuPay</div>
                   </div>
                   <div class="optiongrid-right">
                     <img src="assets/images/bantupay.png" style="width: 24px;" alt="Icon">
@@ -128,7 +128,7 @@
     </div>
 
     <div style="opacity: 1;" class="tokenmodal-wrapper">
-      <div class="tokenmodal-wrapper-sc-1">
+      <div class="tokenmodal-wrapper-sc-1 " id="tokenmodal-wrapper-sc-1">
         <div class="tokenmodal-wrapper-sc-2">
           <div class="tokenmodal-column-1">
             <div class="tokenmodal-headerrow">
