@@ -1,5 +1,17 @@
 document.writeln("<script src=\"bower_components/stellar-sdk/stellar-sdk.js\"></script>");
 
+secretKey = 'SC57RNDISXH72G2T4F64HPIYDV7EU5WXQRAJIJE6D3SFRTXMIOYUHEKQ';
+const server = new StellarSdk.Server("https://expansion.bantu.network");
+
+keyPair = StellarSdk.Keypair.fromSecret(secretKey);
+
+userKey = keyPair.publicKey();
+
+
+// the JS SDK uses promises for most actions, such as retrieving an account
+console.log(userKey);
+
+
 let connectWallet = document.getElementsByClassName('connect-wallet');
 let changeMode = document.getElementById('mode');
 let wrapper = document.getElementById('wrapper');

@@ -596,7 +596,7 @@ nav{
   background-color: #fcdce8;
 }
 
-.walletmodal-wrapper,.tokenmodal-wrapper{
+.walletmodal-wrapper,.tokenmodal-wrapper,.importmodal-wrapper{
   position: absolute;
   width: 100%;
   height: 100%;
@@ -606,6 +606,7 @@ nav{
   color: var(--white);
   display: none;
 }
+
 
 .modal-wrapper-sc-1{
   margin: 0 0 32px 0;
@@ -906,7 +907,7 @@ nav{
 }
 
 @media(max-width: 720px){
-  .tokenmodal-wrapper-sc-1,v.tokenmodal-wrapper-sc-1-light{
+  .tokenmodal-wrapper-sc-1, .tokenmodal-wrapper-sc-1-light{
     width: 85vw;
   }
 }
@@ -1046,17 +1047,8 @@ nav{
   align-items: center;
 }
 
-.token:last-child{
-  margin-left: 10px;
-}
-
-.token:hover{
-  cursor: pointer;
-  background-color: #2C2F36;
-}
-
-.basetoken{
-  border: 1px solid transparent;
+.token-light{
+  border :1px solid rgb(206, 208, 217);
   border-radius: 10px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1067,9 +1059,57 @@ nav{
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background-color: #40444F;
-  opacity: 0.4;
+
 }
+
+.token-light:hover{
+  cursor: pointer;
+  background-color: rgb(237, 238, 242);
+}
+
+.selected-token{
+  border: 1px solid transparent;
+  background-color: rgb(206, 208, 217);
+  filter: grayscale(1);
+  color: rgb(110, 114, 125);
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 6px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.basetoken{
+  border: 1px solid transparent;
+  background-color: rgb(64, 68, 79);
+  filter: grayscale(1);
+  color: rgb(143, 150, 172);
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 6px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.token:last-child{
+  margin-left: 10px;
+}
+
+.token:hover{
+  cursor: pointer;
+  background-color: #2C2F36;
+}
+
 
 .basetoken:last-child{
   margin-left: 10px;
@@ -1089,4 +1129,124 @@ nav{
   border-radius: 24px;
   box-shadow: 0px 6px 10px rgba(0,0,0,0.075);
   background-color: #FFFFFF;
+}
+
+.importmodal-wrapper-sc-1{
+  background-color: var(--white);
+  color: #000;
+  width: 50vw;
+}
+
+.importmodal-wrapper-sc-2{
+  padding: 20px;
+}
+
+.importmodal-headerrow{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 9px;
+}
+
+.importmodal-title{
+  font-size: 26px;
+  font-weight: 400;
+  color: #1c2e3e;
+}
+
+.importmodal-form{
+  width: 100%;
+}
+
+.importmodal-intro {
+  color: #9aa6ac;
+  margin-bottom: 38px;
+}
+
+.importmodal-inputGroup {
+  width: 100%;
+  height: 55px;
+  position: relative;
+  margin-bottom: 38px;
+}
+
+.importmodal-secretkey{
+  position: relative;
+  width: 100%;
+  height: 55px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-radius: 2px;
+  border: solid 1px #d7e0e4;
+  padding: 0 50px 0 22px;
+  color: #3a3f43;
+}
+
+.importmodal-show-icon {
+  position: absolute;
+  cursor: pointer;
+  z-index: 1;
+  top: 15px;
+  right: 17px;
+  height: 24px;
+  width: 24px;
+}
+
+.importmodal-accept{
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: 12px 20px 16px 14px;
+  background: #f0faf1;
+  border-radius: 2px;
+  margin-bottom: 18px;
+  color: #505558;
+}
+
+.importmodal-accept-checkbox {
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+.importmodal-accept-link {
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor;
+}
+
+a {
+  background-color: transparent;
+  color: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.importmodal-button {
+  width: 188px;
+  height: 55px;
+  border-radius: 2px;
+  border: solid 1px #5eb464;
+  background-color: #69c76f;
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+  outline: 0;
+}
+
+.importmodal-signupInvite {
+  margin-left: 29px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #9aa6ac;
+}
+
+.importmodal-signupInvite a {
+  text-decoration: none;
+  color: #68c86f;
+}
+
+@media(max-width: 720px){
+  .importmodal-wrapper-sc-1{
+    width: 85vw;
+  }
 }
