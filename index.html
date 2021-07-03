@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
     <title>BaxiSwap</title>
   </head>
   <body>
@@ -179,17 +180,16 @@
             </p>
 
             <form>
-              <label class="importmodal-inputGroup" for="inputSecretKey"><input name="inputSecretKey" type="password" class="importmodal-secretkey" maxlength="56" placeholder="Sxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" value=""><img src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3e%3cg fill='none' fill-rule='evenodd'%3e%3cpath fill='%237ED085' fill-rule='nonzero' d='M19.013 7.86l.164.144A19.063 19.063 0 0121.1 10c.343.411.587.736.722.931l.394.569-.394.569c-.135.195-.38.52-.722.93-.567.68-1.211 1.36-1.923 1.997C17.088 16.863 14.845 18 12.5 18c-1.024 0-2.03-.217-3.01-.617l1.577-1.578c.48.128.96.195 1.433.195 1.763 0 3.587-.925 5.344-2.496a17.084 17.084 0 001.9-2.004 17.084 17.084 0 00-2.15-2.223l1.419-1.417zm-3.44-2.217L14 7.214A5.573 5.573 0 0012.5 7c-1.763 0-3.587.925-5.344 2.496a17.084 17.084 0 00-1.9 2.004l.18.219a17.084 17.084 0 002.017 2.044L6.034 15.18c-.07-.06-.14-.123-.21-.185A19.063 19.063 0 013.9 13a14.006 14.006 0 01-.722-.931l-.394-.569.394-.569c.135-.195.38-.52.722-.93.567-.68 1.211-1.36 1.923-1.997C7.912 6.137 10.155 5 12.5 5c1.046 0 2.072.226 3.073.643z'/%3e%3cpath fill='%237ED085' fill-rule='nonzero' d='M10.018 11.197a2.501 2.501 0 012.18-2.179l-2.18 2.18zm4.95.708l-2.063 2.062a2.502 2.502 0 002.062-2.062z'/%3e%3cpath stroke='%237ED085' stroke-width='2' d='M6 18.044L19.012 5.032'/%3e%3c/g%3e%3c/svg%3e" alt="show" class="importmodal-show-icon"></label>
-              <label class="importmodal-accept" for="inputAcceptCheckbox"><input id="inputAcceptCheckbox" name="inputAcceptCheckbox" class="importmodal-accept-checkbox" type="checkbox" readonly=""><span class="importmodal-accept-label" style="font-size: 13px;">I accept the <a class="importmodal-accept-link" target="_blank" href=#>Terms of Use</a>, understand the risks associated with cryptocurrencies, and know that BaxiSwap does not issue or endorse any asset on the Bantu network.</span></label>
+              <label class="importmodal-inputGroup" for="inputSecretKey"><input name="inputSecretKey" type="password" class="importmodal-secretkey" maxlength="56" placeholder="Sxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" value=""><i onclick="secretVisibility()" class="far fa-eye-slash" id="importmodal-show-icon" ></i>
+              <label class="importmodal-accept" for="inputAcceptCheckbox"><input id="inputAcceptCheckbox" onclick="acceptcheckbox()" name="inputAcceptCheckbox" class="importmodal-accept-checkbox" type="checkbox" readonly=""><span class="importmodal-accept-label" style="font-size: 13px;">I accept the <a class="importmodal-accept-link" target="_blank" href=#>Terms of Use</a>, understand the risks associated with cryptocurrencies, and know that BaxiSwap does not issue or endorse any asset on the Bantu network.</span></label>
               <div>
-                <div><input type="submit" class="importmodal-button" disabled="" value="Import"><span class="importmodal-signupInvite">Don't have an account? <a href="https://bantupay.org/">Create new account</a></span></div>
+                <div><input type="submit" class="importmodal-button"  value="Import" disabled><span class="importmodal-signupInvite">Don't have an account? <a href="https://bantupay.org/">Create new account</a></span></div>
               </div>
             </form>
           </div>
         </div>
       </div>
     </div>
-    <!--<img src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3e%3cg fill='none' fill-rule='evenodd'%3e%3cpath stroke='%237ED085' stroke-width='2' d='M12.5 17c4.694 0 8.5-5.5 8.5-5.5S17.194 6 12.5 6 4 11.5 4 11.5 7.806 17 12.5 17z'/%3e%3ccircle cx='12.5' cy='11.5' r='2.5' fill='%237ED085' fill-rule='nonzero'/%3e%3c/g%3e%3c/svg%3e" alt="show" class="LoginPage__show_icon">-->
     <!-- Javascript -->
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/bower_components/stellar-sdk/stellar-sdk.js"></script>

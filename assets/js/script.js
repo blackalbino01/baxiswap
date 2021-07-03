@@ -1,15 +1,11 @@
 document.writeln("<script src=\"bower_components/stellar-sdk/stellar-sdk.js\"></script>");
 
-secretKey = 'SC57RNDISXH72G2T4F64HPIYDV7EU5WXQRAJIJE6D3SFRTXMIOYUHEKQ';
 const server = new StellarSdk.Server("https://expansion.bantu.network");
 
-keyPair = StellarSdk.Keypair.fromSecret(secretKey);
-
-userKey = keyPair.publicKey();
 
 
-// the JS SDK uses promises for most actions, such as retrieving an account
-console.log(userKey);
+
+
 
 
 let connectWallet = document.getElementsByClassName('connect-wallet');
@@ -28,6 +24,9 @@ let tokenModalWrapper = document.getElementById('tokenmodal-wrapper-sc-1');
 let walletContentWrapper = document.getElementById('walletmodal-contentwrapper');
 let connectBantuPay = document.getElementById('connect-bantupay');
 let walletContentWrapperNotice = document.getElementById('walletmodal-contentwrapper-notice');
+let togglePassword = document.getElementById("importmodal-show-icon");
+let secretInput = document.getElementsByClassName("importmodal-secretkey")[0];
+let secretKey = secretInput.value;
 
 
 function checkMode(){
@@ -219,4 +218,50 @@ function shufflePanel() {
 										                    </div>`;
 		}
 	}
+}
+
+function secretVisibility(){
+	
+	
+	if (input.type === "password") {
+		input.nextElementSibling= `<img src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3e%3cg fill='none' fill-rule='evenodd'%3e%3cpath stroke='%237ED085' stroke-width='2' d='M12.5 17c4.694 0 8.5-5.5 8.5-5.5S17.194 6 12.5 6 4 11.5 4 11.5 7.806 17 12.5 17z'/%3e%3ccircle cx='12.5' cy='11.5' r='2.5' fill='%237ED085' fill-rule='nonzero'/%3e%3c/g%3e%3c/svg%3e" alt="show" class="importmodal-show-icon">`;	    
+		input.type = "text";
+	} 
+	else {
+	   input.type = "password";
+	}
+}
+
+togglePassword.addEventListener('click', function (e) {
+    // toggle the type attribute
+    const type = secretInput.getAttribute('type') === 'password' ? 'text' : 'password';
+    secretInput.setAttribute('type', type);
+    // toggle the eye / eye slash icon
+    const toggle = secretInput.getAttribute('type') == 'password' ? 'fa-eye-slash' : 'fa-eye';
+
+    this.classList.remove("fa-eye-slash");
+    this.classList.add(toggle);
+
+});
+
+let checkbox = document.getElementById('inputAcceptCheckbox');
+let button = document.getElementsByClassName('importmodal-button')[0];
+function acceptcheckbox(){
+	if(checkbox.checked){
+		button.disabled = false;
+	}
+	else{
+		button.disabled = true;
+	}
+}
+
+function walletImport(){
+
+	keyPair = StellarSdk.Keypair.fromSecret(secretKey);
+
+    userKey = keyPair.publicKey();
+
+    connectWallet.innerText = userKey;
+
+    console.log(userKey);
 }
