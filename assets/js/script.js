@@ -1,13 +1,6 @@
 document.writeln("<script src=\"bower_components/stellar-sdk/stellar-sdk.js\"></script>");
 
 const server = new StellarSdk.Server("https://expansion.bantu.network");
-
-
-
-
-
-
-
 let connectWallet = document.getElementsByClassName('connect-wallet');
 let changeMode = document.getElementById('mode');
 let wrapper = document.getElementById('wrapper');
@@ -25,8 +18,6 @@ let walletContentWrapper = document.getElementById('walletmodal-contentwrapper')
 let connectBantuPay = document.getElementById('connect-bantupay');
 let walletContentWrapperNotice = document.getElementById('walletmodal-contentwrapper-notice');
 let togglePassword = document.getElementById("importmodal-show-icon");
-let secretInput = document.getElementsByClassName("importmodal-secretkey")[0];
-let secretKey = secretInput.value;
 
 
 function checkMode(){
@@ -255,13 +246,34 @@ function acceptcheckbox(){
 	}
 }
 
+let form = document.querySelector('form');
+let secretInput = document.querySelector('.importmodal-secretkey')
+let accountIcon = document.querySelector('.account-icon');
+let connectToWallet = document.querySelector('.connect-to-wallet');
+let connectToWallet_ = document.querySelector('.connect-to-wallet2');
+let privatekey = localStorage.getItem('secretKey');
+let keyPair = StellarSdk.Keypair.fromSecret(privatekey);
+let string = keyPair.publicKey();
+
 function walletImport(){
 
-	keyPair = StellarSdk.Keypair.fromSecret(secretKey);
+	form.addEventListener('submit', function (e) {
+	  e.preventDefault()
+	  ModalClose(document.querySelector('.importmodal-wrapper'));
+	});
 
-    userKey = keyPair.publicKey();
+	localStorage.setItem('secretKey',secretInput.value);
 
-    connectWallet.innerText = userKey;
-
-    console.log(userKey);
+	connectToWallet_.innerHTML = `<button class="connectwallet connect-wallet" id="connect2">Swap</button>`;
+	connectToWallet.innerHTML = `<button id="connect" class="connect-dark connect-wallet">${string.substr(0,5)+ "...." + string.substr(-5)}</button>`;
+	accountIcon.style.display = "flex";
 }
+
+window.addEventListener('load', function(e) {
+	if(string){
+		connectToWallet.innerHTML = `<button id="connect" class="connect-dark connect-wallet">${string.substr(0,5)+ "...." + string.substr(-5)}</button>`;
+		connectToWallet_.innerHTML = `<button class="connectwallet connect-wallet" id="connect2">Swap</button>`;
+		accountIcon.style.display = "flex";
+		
+	}
+});

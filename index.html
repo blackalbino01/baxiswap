@@ -23,6 +23,9 @@
             <div class="connect-to-wallet">
               <button id="connect" class="connect-dark connect-wallet" onClick="ModalShow(document.querySelector('.walletmodal-wrapper'))">Connect to a Wallet</button>
             </div>
+            <div class="account-icon" style="display:none;">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANIAAADSCAYAAAA/mZ5CAAAFEUlEQVR4nO3T0U0FMAwDQBZjGeZlJ1gieVbjOyn/dRN//f58/zXNFx+R3vPH7yr9AEW6Kb1nRVKkE9J7ViRFOiG9Z0VSpBPSe1YkRTohvWdFUqQT0ntWJEU6Ib1nRVKkE9J7ViRFOiG9Z0VSpBPSe1YkRTohvWdFUqQT0ntWJEU6Ib1nRVKkE9J7ViRFOiG9Z0VSpBPSe1YkRTohvWdFUqQT0ntWJEU6Ib1nRVKkE9J7ViRFOiG9Z0VSpBPSe1YkRTohvWdFUqQT0ntWJEU6Ib1nRVKkE9J7ViRFOiG9Z0VSpBPSe1YkRTohveeaIqUXzU2KBAMUCQYoEgxQJBigSDBAkWCAIsEARYIBigQDFAkGKBIMUCQYoEgwQJFggCLBAEWCAYoEAxQJBigSDFAkGKBIMECRYIAiwQBFggGKBAMUCQYoEgxQJBigSDDAPR9nwTBAkWCAIsEARYIBigQDFAkGKBIMUCQYoEgwQJFggCLBAEWCAYoEAxQJBigSDFAkGKBIMECRYIAiwQBFggGKBAMUCQYoEgxQJBigSDBAkWCAIsEARYIBigQDFIlTUgfdNuk9syx9YC2T3jPL0gfWMuk9syx9YC2T3jPL0gfWMuk9syx9YC2T3jPL0gfWMuk9syx9YC2T3jPL0gfWMuk9syx9YC2T3jPL0gfWMuk9syx9YC2T3jPL0gfWMuk9syx9YC2T3jPL0gfWMuk9syx9YC2T3jPL0gfWMuk9syx9YC2T3jPL0gfWMuk9syx9YC2T3jPL0gfWMuk9syx9YC2T3jPL0gfWMuk9syx9YC2T3jPL0gfWMuk9syx9YC2T3jPL0gfWMuk9syx9YC2T3jPL0gfWMuk9syx9YC2T3jPL0gfWMuk9syx9YC2T3jPL0gfWMuk9syx9YC2T3jPL0gfWMuk9syx9YC2T3jPL0gfWMuk9syx9YC2T3jPL0gfWMuk9syx9YC2T3jPL0gfWMuk9syx9YC2T3jPL0gfWMuk9syx9YC2T3jPL0gfWMuk9syx9YC2T3jPL0gfWMuk9syx9YC2T3jPL0gfWMuk9syx9YC2T3jPL0gfWMuk9syx9YC2T3jPL0gfWMuk9syx9YC2T3jPL0gfWMuk9syx9YC2T3jPL0gfWMuk9syx9YC2T3jPL0gfWMuk9syx9YC2T3vPHpT+8ZcHy3p6+wGWH1ZY39s/pBzgseS9MX+Cyw2rLG/vn9AMclrwXpi9w2WG15Y39c/oBDkveC9MXuOyw2vLG/jn9AIcl74XpC1x2WG15Y/+cfoDDkvfC9AUuO6y2vLF/Tj/AYcl7YfoClx1WW97YP6cf4LDkvTB9gcsOqy1v7J/TD3BY8l6YvsBlh9WWN/bP6Qc4LHkvTF/gssNqyxv75/QDHJa8F6YvcNlhteWN/XP6AQ5L3gvTF7jssNryxv45/QCHJe+F6QtcdlhteWP/nH6Aw5L3wvQFLjustryxf04/wGHJe2H6ApcdVlve2D9bsLzyKtI7Hy3v7bw+Wl55Femdj5b3dl4fLa+8ivTOR8t7O6+PlldeRXrno+W9nddHyyuvIr3z0fLezuuj5ZVXkd75aHlv5/XR8sqrSO98tLy38/poeeVVpHc+Wt7beX20vPIq0jsfLe/tvD5aXnkV6Z2Plvd2Xh8tr7yK9M5Hy3s7r4+WV15Feuej5b2d10fLK68ivfPR8t7O66PllVeR3vloeW/n9dHyyqtI73y0vKfz/gMtusFXcrBeCAAAAABJRU5ErkJggg==" alt="icon">
+            </div>
             <div class="mode">
               <button id="mode" class="darkmode" onclick="checkMode()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -77,8 +80,8 @@
                   </div>
                 </div>
               </div>
-              <div>
-                <button class="connectwallet connect-wallet" onClick="ModalShow(document.querySelector('.walletmodal-wrapper'))" >Connect Wallet</button>
+              <div class="connect-to-wallet2">
+                <button class="connectwallet connect-wallet" id="connect2" onClick="ModalShow(document.querySelector('.walletmodal-wrapper'))" >Connect Wallet</button>
               </div>
             </div>
           </div>
@@ -180,10 +183,10 @@
             </p>
 
             <form>
-              <label class="importmodal-inputGroup" for="inputSecretKey"><input name="inputSecretKey" type="password" class="importmodal-secretkey" maxlength="56" placeholder="Sxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" value=""><i onclick="secretVisibility()" class="far fa-eye-slash" id="importmodal-show-icon" ></i>
+              <label class="importmodal-inputGroup" for="inputSecretKey"><input name="inputSecretKey" type="password" class="importmodal-secretkey" maxlength="56" placeholder="Sxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" value=""><i onclick="secretVisibility()" class="far fa-eye-slash" id="importmodal-show-icon"  required></i>
               <label class="importmodal-accept" for="inputAcceptCheckbox"><input id="inputAcceptCheckbox" onclick="acceptcheckbox()" name="inputAcceptCheckbox" class="importmodal-accept-checkbox" type="checkbox" readonly=""><span class="importmodal-accept-label" style="font-size: 13px;">I accept the <a class="importmodal-accept-link" target="_blank" href=#>Terms of Use</a>, understand the risks associated with cryptocurrencies, and know that BaxiSwap does not issue or endorse any asset on the Bantu network.</span></label>
-              <div>
-                <div><input type="submit" class="importmodal-button"  value="Import" disabled><span class="importmodal-signupInvite">Don't have an account? <a href="https://bantupay.org/">Create new account</a></span></div>
+              <div style="margin-bottom:20px;">
+                <div><input type="submit" onclick="walletImport()" class="importmodal-button"  value="Import" disabled><span class="importmodal-signupInvite">Don't have an account? <a href="https://bantupay.org/">Create new account</a></span></div>
               </div>
             </form>
           </div>
