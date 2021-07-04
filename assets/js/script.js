@@ -251,9 +251,9 @@ let secretInput = document.querySelector('.importmodal-secretkey')
 let accountIcon = document.querySelector('.account-icon');
 let connectToWallet = document.querySelector('.connect-to-wallet');
 let connectToWallet_ = document.querySelector('.connect-to-wallet2');
-let privatekey = localStorage.getItem('secretKey');
+let privatekey = sessionStorage.getItem('secretKey');
 let keyPair = StellarSdk.Keypair.fromSecret(privatekey);
-let string = keyPair.publicKey();
+
 
 function walletImport(){
 
@@ -262,18 +262,21 @@ function walletImport(){
 	  ModalClose(document.querySelector('.importmodal-wrapper'));
 	});
 
-	localStorage.setItem('secretKey',secretInput.value);
-
-	connectToWallet_.innerHTML = `<button class="connectwallet connect-wallet" id="connect2">Swap</button>`;
-	connectToWallet.innerHTML = `<button id="connect" class="connect-dark connect-wallet">${string.substr(0,5)+ "...." + string.substr(-5)}</button>`;
-	accountIcon.style.display = "flex";
-}
-
-window.addEventListener('load', function(e) {
-	if(string){
+	sessionStorage.setItem('secretKey',secretInput.value);
+	if(privatekey){
+		const string = keyPair.publicKey();
 		connectToWallet.innerHTML = `<button id="connect" class="connect-dark connect-wallet">${string.substr(0,5)+ "...." + string.substr(-5)}</button>`;
 		connectToWallet_.innerHTML = `<button class="connectwallet connect-wallet" id="connect2">Swap</button>`;
 		accountIcon.style.display = "flex";
-		
 	}
-});
+		
+}
+
+function checkRefresh(){
+	if(privatekey){
+		const string = keyPair.publicKey();
+		connectToWallet.innerHTML = `<button id="connect" class="connect-dark connect-wallet">${string.substr(0,5)+ "...." + string.substr(-5)}</button>`;
+		connectToWallet_.innerHTML = `<button class="connectwallet connect-wallet" id="connect2">Swap</button>`;
+		accountIcon.style.display = "flex";
+	}
+}
