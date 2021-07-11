@@ -272,11 +272,24 @@ function walletImport(){
 		
 }
 
-function checkRefresh(){
-	if(privatekey){
-		const string = keyPair.publicKey();
-		connectToWallet.innerHTML = `<button id="connect" class="connect-dark connect-wallet">${string.substr(0,5)+ "...." + string.substr(-5)}</button>`;
-		connectToWallet_.innerHTML = `<button class="connectwallet connect-wallet" id="connect2">Swap</button>`;
-		accountIcon.style.display = "flex";
+
+
+function chooseToken(e){
+	let inputToken = document.getElementById('basetoken');
+	let outputToken = document.getElementById('outputToken');
+	let commonbase = document.querySelectorAll('.common-bases-wrapper');
+	if(e.classList.contains('token')){
+		inputToken.innerHTML = e.innerHTML;
+		if(commonbase[1] == e){
+			e.classList.replace('token', 'basetoken');
+			commonbase[0].classList.replace('basetoken', 'token');
+			outputToken.innerHTML = commonbase[0].innerHTML;
+		}
+
+		else{
+			e.classList.replace('token', 'basetoken');
+			commonbase[1].classList.replace('basetoken', 'token');
+			outputToken.innerHTML = commonbase[1].innerHTML;
+		}
 	}
 }
