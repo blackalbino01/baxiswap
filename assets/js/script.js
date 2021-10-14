@@ -375,8 +375,6 @@ const web3Modal = new Web3Modal({
  * Connect wallet button pressed.
  */
 async function onConnect() {
-
-  console.log("Opening a dialog", web3Modal);
   try {
     provider = await web3Modal.connect();
   } catch(e) {
