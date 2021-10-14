@@ -329,8 +329,6 @@ function chooseToken(e){
 }
 
 
-let web3Modal;
-
 
 
 const providerOptions = {
@@ -368,7 +366,7 @@ const providerOptions = {
 
   };
 
-web3Modal = new Web3Modal({
+let web3Modal = new Web3Modal({
   network: "mainnet",
   cacheProvider: true, // optional
   providerOptions, // required
