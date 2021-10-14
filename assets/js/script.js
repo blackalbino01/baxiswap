@@ -17,7 +17,7 @@ let walletModalWrapper = document.getElementById('modal-wrapper-sc-1');
 let tokenModalWrapper = document.getElementById('tokenmodal-wrapper-sc-1');
 let walletContentWrapper = document.getElementById('walletmodal-contentwrapper');
 let connectBantuPay = document.getElementById('connect-bantupay');
-let connectMetamask = document.getElementById('connect-metamask');
+let connectOtherWallet = document.querySelector('.connect-other-wallet');
 let walletContentWrapperNotice = document.getElementById('walletmodal-contentwrapper-notice');
 let togglePassword = document.getElementById("importmodal-show-icon");
 const Web3Modal = window.Web3Modal.default;
@@ -385,7 +385,8 @@ async function onConnect() {
   }
 }
 
-document.querySelector(".connect-other-wallet").addEventListener("click", onConnect);
+//connectOtherWallet.addEventListener('click', onConnect());
+
 
 
 
