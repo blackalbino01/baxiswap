@@ -329,6 +329,10 @@ function chooseToken(e){
 }
 
 
+let web3Modal;
+
+
+
 const providerOptions = {
     walletconnect: {
       package: WalletConnectProvider,
@@ -364,7 +368,7 @@ const providerOptions = {
 
   };
 
-const web3Modal = new Web3Modal({
+web3Modal = new Web3Modal({
   network: "mainnet",
   cacheProvider: true, // optional
   providerOptions, // required
@@ -375,6 +379,7 @@ const web3Modal = new Web3Modal({
  * Connect wallet button pressed.
  */
 async function onConnect() {
+	console.log("Opening a dialog", web3Modal);
   try {
     provider = await web3Modal.connect();
   } catch(e) {
