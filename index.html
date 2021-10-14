@@ -52,13 +52,14 @@
                         <span class="currency-input-panel">
                           <div id='basetoken'>
                             <img src="assets/images/bantupay.png" style="width: 24px; border-radius: 100%;">
-                            <span style="margin:0 4px;">XBN</span>
+                            <span style="margin:0 4px;" id='asset'>XBN</span>
                           </div>
                           <svg class="token-dropdown" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.97168 1L6.20532 6L11.439 1" stroke="#AEAEAE"></path></svg>
                         </span>
                       </button>
                       <input class="input input-dark" type="text" inputmode="decimal" pattern="^[0-9]*[.,]?[0-9]*$" placeholder="0.0" minlength="1" maxlength="79">
                     </div>
+                    <div style="display: none; cursor: pointer;font-size: 16px;color: rgb(195, 197, 203);padding-left: 20px;cursor: pointer;" class="balance">Balance: <span id="balance">0</span> XBN</div>
                   </div>
                 </div>
                 <div class="shuffle" id="shuffle">
@@ -77,6 +78,7 @@
                       </button>
                       <input class="input input-dark" type="text" inputmode="decimal" pattern="^[0-9]*[.,]?[0-9]*$" placeholder="0.0" minlength="1" maxlength="79">
                     </div>
+                    <div style="display: none; cursor: pointer;font-size: 16px;color: rgb(195, 197, 203);padding-left: 20px;cursor: pointer;" class="balance">Balance: <span id="balance">0</span> XBN</div>
                   </div>
                 </div>
               </div>
@@ -116,14 +118,14 @@
                     <img src="assets/images/bantupay.png" style="width: 24px;" alt="Icon">
                   </div>
                 </button>
-                <!--<button id="connect-bittrex" class="btns">
+                <button id="connect-metamask" class="btns">
                   <div class="optiongrid-left">
-                    <div color="#4196FC" class="optiongrid-left-headertext">Bittrex Wallet</div>
+                    <div color="#4196FC" class="optiongrid-left-headertext">Metamask</div>
                   </div>
                   <div class="optiongrid-right">
-                    <img src="assets/images/bantu.png" style="width: 24px;"  alt="Icon">
+                    <img src="assets/images/metamask.png" style="width: 24px;"  alt="Icon">
                   </div>
-                </button>-->
+                </button>
               </div>
             </div>
           </div>
@@ -182,7 +184,7 @@
               Enter secret key
             </p>
 
-            <form>
+            <form method="post">
               <label class="importmodal-inputGroup" for="inputSecretKey"><input name="inputSecretKey" type="password" class="importmodal-secretkey" maxlength="56" placeholder="Sxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" value=""><i onclick="secretVisibility()" class="far fa-eye-slash" id="importmodal-show-icon"  required></i>
               <label class="importmodal-accept" for="inputAcceptCheckbox"><input id="inputAcceptCheckbox" onclick="acceptcheckbox()" name="inputAcceptCheckbox" class="importmodal-accept-checkbox" type="checkbox" readonly=""><span class="importmodal-accept-label" style="font-size: 13px;">I accept the <a class="importmodal-accept-link" target="_blank" href=#>Terms of Use</a>, understand the risks associated with cryptocurrencies, and know that BaxiSwap does not issue or endorse any asset on the Bantu network.</span></label>
               <div style="margin-bottom:20px;">

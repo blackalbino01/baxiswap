@@ -16,6 +16,7 @@ let walletModalWrapper = document.getElementById('modal-wrapper-sc-1');
 let tokenModalWrapper = document.getElementById('tokenmodal-wrapper-sc-1');
 let walletContentWrapper = document.getElementById('walletmodal-contentwrapper');
 let connectBantuPay = document.getElementById('connect-bantupay');
+let connectMetamask = document.getElementById('connect-metamask');
 let walletContentWrapperNotice = document.getElementById('walletmodal-contentwrapper-notice');
 let togglePassword = document.getElementById("importmodal-show-icon");
 
@@ -251,28 +252,50 @@ let secretInput = document.querySelector('.importmodal-secretkey')
 let accountIcon = document.querySelector('.account-icon');
 let connectToWallet = document.querySelector('.connect-to-wallet');
 let connectToWallet_ = document.querySelector('.connect-to-wallet2');
-let privatekey = sessionStorage.getItem('secretKey');
+let privatekey = secretInput.value;
+let balance = document.querySelectorAll('.balance');
 let keyPair = StellarSdk.Keypair.fromSecret(privatekey);
+let updatebalance = document.querySelector('#balance');
+let checkAsset = document.querySelector('#asset');
+let checkCommonAsset = document.querySelector('.common-base-token');
+
 
 
 function walletImport(){
 
 	form.addEventListener('submit', function (e) {
 	  e.preventDefault()
-	  ModalClose(document.querySelector('.importmodal-wrapper'));
-	});
-
-	sessionStorage.setItem('secretKey',secretInput.value);
-	if(privatekey){
+	  if(privatekey){
 		const string = keyPair.publicKey();
 		connectToWallet.innerHTML = `<button id="connect" class="connect-dark connect-wallet">${string.substr(0,5)+ "...." + string.substr(-5)}</button>`;
 		connectToWallet_.innerHTML = `<button class="connectwallet connect-wallet" id="connect2">Swap</button>`;
 		accountIcon.style.display = "flex";
-	}
+		balance[0].style.display = "inline";
+		balance[1].style.display = "inline";
+
+		server.accounts().accountId(string)
+        .call()
+        .then(function (result) {
+            //check balance here
+            
+            if(checkAsset.innerHTML == 'XBN' || checkCommonAsset == 'XBN'){
+            	xbn = result.balances[1].balance;
+            	updatebalance.innerHTML = xbn;
+            }
+            else{
+            	bnr = result.balances[0].balance;
+            	updatebalance.innerHTML = bnr;
+            }
+
+        })
+        .catch(function (err) {
+            console.error(err);
+        });
+	  }
+	  ModalClose(document.querySelector('.importmodal-wrapper'));
+	});
 		
 }
-
-
 
 function chooseToken(e){
 	let inputToken = document.getElementById('basetoken');
@@ -292,4 +315,19 @@ function chooseToken(e){
 			outputToken.innerHTML = commonbase[1].innerHTML;
 		}
 	}
+}
+
+connectMetamask.addEventListener('click', () => {
+  //Will Start the metamask extension
+  enableMetamask();
+});
+
+async function enableMetamask(){
+  if (typeof window.ethereum !== 'undefined') { //check if Metamask is installed
+  	await ethereum.request({ method: 'eth_requestAccounts' });
+        
+  } else {
+        alert("🦊 You must install Metamask into your browser: https://metamask.io/download.html"
+        );
+      } 
 }
