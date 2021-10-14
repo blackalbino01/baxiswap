@@ -1,5 +1,6 @@
 document.writeln("<script src=\"bower_components/stellar-sdk/stellar-sdk.js\"></script>");
 
+
 const server = new StellarSdk.Server("https://expansion.bantu.network");
 let connectWallet = document.getElementsByClassName('connect-wallet');
 let changeMode = document.getElementById('mode');
@@ -19,6 +20,16 @@ let connectBantuPay = document.getElementById('connect-bantupay');
 let connectMetamask = document.getElementById('connect-metamask');
 let walletContentWrapperNotice = document.getElementById('walletmodal-contentwrapper-notice');
 let togglePassword = document.getElementById("importmodal-show-icon");
+const Web3Modal = window.Web3Modal.default;
+
+const WalletConnectProvider = window.WalletConnectProvider.default;
+const EvmChains = window.EvmChains;
+const Fortmatic = window.Fortmatic;
+
+
+
+
+
 
 
 function checkMode(){
@@ -317,17 +328,66 @@ function chooseToken(e){
 	}
 }
 
-connectMetamask.addEventListener('click', () => {
-  //Will Start the metamask extension
-  enableMetamask();
+
+const providerOptions = {
+    walletconnect: {
+      package: WalletConnectProvider,
+      options: {
+        // Mikko's test key - don't copy as your mileage may vary
+        infuraId: "09046699d3b24685b819c3d6fd021a40",
+      }
+    },
+
+    fortmatic: {
+      package: Fortmatic,
+      options: {
+        // Mikko's TESTNET api key
+        key: "pk_live_16EBC6D98FB3C968"
+      }
+    },
+
+    torus: {
+    package: Torus, // required
+    options: {
+      networkParams: {
+        host: "https://localhost:8545", // optional
+        chainId: 1337, // optional
+        networkId: 1337 // optional
+      },
+      config: {
+        buildEnv: "development" // optional
+      		}
+    	}
+  	},
+
+
+
+  };
+
+const web3Modal = new Web3Modal({
+  network: "mainnet",
+  cacheProvider: true, // optional
+  providerOptions, // required
+  disableInjectedProvider: false,
 });
 
-async function enableMetamask(){
-  if (typeof window.ethereum !== 'undefined') { //check if Metamask is installed
-  	await ethereum.request({ method: 'eth_requestAccounts' });
-        
-  } else {
-        alert("🦊 You must install Metamask into your browser: https://metamask.io/download.html"
-        );
-      } 
+/**
+ * Connect wallet button pressed.
+ */
+async function onConnect() {
+
+  console.log("Opening a dialog", web3Modal);
+  try {
+    provider = await web3Modal.connect();
+  } catch(e) {
+    console.log("Could not get a wallet connection", e);
+    return;
+  }
 }
+
+document.querySelector(".connect-other-wallet").addEventListener("click", onConnect);
+
+
+
+
+
