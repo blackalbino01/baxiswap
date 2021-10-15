@@ -366,7 +366,7 @@ const providerOptions = {
 
   };
 
-let web3Modal = new Web3Modal({
+var web3Modal = new Web3Modal({
   network: "mainnet",
   cacheProvider: true, // optional
   providerOptions, // required
