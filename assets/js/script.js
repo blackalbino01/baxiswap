@@ -367,18 +367,18 @@ const providerOptions = {
   };
 
 
+web3Modal = new Web3Modal({
+  network: "mainnet",
+  cacheProvider: true, // optional
+  providerOptions, // required
+  disableInjectedProvider: false,
+});
 
 /**
  * Connect wallet button pressed.
  */
 async function onConnect() {
 
-var web3Modal = new Web3Modal({
-  network: "mainnet",
-  cacheProvider: true, // optional
-  providerOptions, // required
-  disableInjectedProvider: false,
-});
 	console.log("Opening a dialog", web3Modal);
   try {
     provider = await web3Modal.connect();
