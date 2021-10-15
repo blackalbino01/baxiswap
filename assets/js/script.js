@@ -379,7 +379,7 @@ web3Modal = new Web3Modal({
  */
 async function onConnect() {
 
-	console.log("Opening a dialog", web3Modal);
+	console.log("Opening a dialog");
   try {
     provider = await web3Modal.connect();
   } catch(e) {
